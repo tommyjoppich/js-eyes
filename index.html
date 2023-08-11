@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eye Ball Move on MouseMove</title>
+    <link rel="stylesheet" href="style.css" class="stylesheet">
+</head>
+<body>
+<article class="cheeseman">
+    <header>
+            <div class="nav-area">
+                <ul>
+                    <li><a href="#">thing</a>
+                        <ul>
+                            <li><a href="#">bba</a></li>
+                            <li><a href="#">fbfda</a></li>
+                            <li><a href="#">fadbadb</a></li>
+                            <li><a href="#">bfad</a></li>
+                            <li><a href="#">fadba</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">thing</a></li>
+                    <li><a href="#">thing</a></li>
+                    <li><a href="#">thing</a></li>
+                    <li><a href="#">thing</a></li>
+                </ul>
+            </div>
+        </header>
+    <!--<div style="background: url('hands.png');"></div>-->
+    <a href="#" id="first-one">Button</a>
+    <a href="#" id="second-one">Button</a>
+    <div class="container">
+        <a href="#Hello">Hello IT-Training!</a>
+        <div class="face">
+            <div class="eyes">
+                <span class="eye"></span>
+                <span class="eye"></span>
+            </div>
+        </div>
+        <div class="face">
+            <div class="eyes">
+                <span class="eye"></span>
+                <span class="eye"></span>
+            </div>
+        </div>
+        <div class="face">
+            <div class="eyes">
+                <span class="eye"></span>
+                <span class="eye"></span>
+            </div>
+        </div>
+        <a href="#No">Do not touch the faces!</a>
+    </div>
+    <div>
+        <div id="progressbar"></div>
+        <div id="scrollPath"></div>
+        <section>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <h1>
+                This text is only here so you can scroll.
+            </h1>
+            <p class="text">
+                this_is_made_to_be_evaporated._the_only_way_to_see_this_again_is_to_reload_the_page,_so_be_careful_what_you_hover_over!
+            </p>
+            <div class="earth"></div>
+            <div class="circle">
+                <span style="--i:1;">T</span>
+                <span style="--i:2;">e</span>
+                <span style="--i:3;">a</span>
+                <span style="--i:4;">m</span>
+                <span style="--i:5;">-</span>
+                <span style="--i:6;">B</span>
+                <span style="--i:7;">-</span>
+                <span style="--i:8;">i</span>
+                <span style="--i:9;">s</span>
+                <span style="--i:10;">-</span>
+                <span style="--i:11;">t</span>
+                <span style="--i:12;">h</span>
+                <span style="--i:13;">e</span>
+                <span style="--i:14;">-</span>
+                <span style="--i:15;">b</span>
+                <span style="--i:16;">e</span>
+                <span style="--i:17;">s</span>
+                <span style="--i:18;">t</span>
+                <span style="--i:19;">-</span>
+                <span style="--i:20;">i</span>
+                <span style="--i:21;">n</span>
+                <span style="--i:22;">-</span>
+                <span style="--i:23;">t</span>
+                <span style="--i:24;">h</span>
+                <span style="--i:25;">e</span>
+                <span style="--i:26;">-</span>
+                <span style="--i:27;">w</span>
+                <span style="--i:28;">o</span>
+                <span style="--i:29;">r</span>
+                <span style="--i:30;">l</span>
+                <span style="--i:31;">d</span>
+                <span style="--i:32;">!</span>
+                <span style="--i:33;">-</span>
+            </div>
+
+        </section>
+    </div>
+</article>
+    <script type = "text/javascript">
+        document.querySelector("body").addEventListener('mousemove', eyeball);
+        function eyeball(){
+            var eye = document.querySelectorAll(".eye");
+            eye.forEach(function (eye){
+                let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2);
+                let y = (eye.getBoundingClientRect().top) + (eye.clientWidth / 2);
+                let radian = Math.atan2(event.pageX - x,event.pageY - y);
+                let rot = (radian * (180 / Math.PI) * -1) + 270;
+                eye.style.transform = "rotate("+ rot +"deg)";
+            })
+        }
+
+        //for buttons
+        const buttons = document.querySelectorAll('a');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+
+                let ripples = document.createElement('span');
+                ripples.classList.add("button-class");
+                ripples.style.left = x + 'px';
+                ripples.style.top = y + 'px';
+                //let target = document.querySelector("span");
+                this.appendChild(ripples);
+                console.log("ripples appended to e " + this.id);
+
+                setTimeout(() => {
+                    ripples.remove()
+                },1000);
+            })
+        })
+
+        //for scrollbar
+        let progress = document.getElementById('progressbar');
+        let totalHeight = document.body.scrollHeight - window.innerHeight;
+        window.onscroll = function(){
+            let progressHeight = (window.pageYOffset / totalHeight) * 100;
+            progress.style.height = progressHeight + "%";
+        }
+
+        //for evaporating text
+         //split text into letters
+        const text = document.querySelector('.text');
+        text.innerHTML = text.textContent.replace(/\S/g,"<span>$&</span>");
+         //add active class on hovered span tag
+        const letters = document.querySelectorAll('span');
+        for(let i = 0; i < letters.length; i++){
+            letters[i].addEventListener("mouseover", function(){
+                letters[i].classList.add('active');
+            })
+        }
+    </script>
+</body>
+</html>
